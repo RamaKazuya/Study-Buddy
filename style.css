@@ -1,0 +1,435 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background-image: url('sb1.jpg');
+    background-size: cover;
+}
+
+.logo {
+    flex-grow: 1; /* Membuat logo mengambil ruang di tengah */
+    text-align: center; /* Memastikan teks berada di tengah */
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #fffdfd;
+}
+
+h2 {
+    color: white;
+}
+
+/* Header dan Navbar */
+header {
+    background: #2e2d2d;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+header nav a:hover {
+    color: #f3a953;
+}
+
+/* Dropdown Menu */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    padding: 15px 20px;
+    display: block;
+}
+
+.nav-links a:hover {
+    background-color: #575757;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: #1e1e1e;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 150px;
+}
+
+.dropdown-menu li {
+    border-bottom: 1px solid #575757;
+}
+
+.dropdown-menu li a {
+    padding: 10px 15px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #575757;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Section Konten */
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/4/42/Genshin_Impact_Screenshot_02.png') no-repeat center center/cover;
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+}
+
+.hero-content .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #f3a953;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.hero-content .btn:hover {
+    background: #e8923c;
+}
+
+/* Download Section */
+.download-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.download-options img {
+    width: 150px;
+    border-radius: 10px;
+}
+
+/* News Section */
+.news-section {
+    padding: 50px 20px;
+    background: #f9f9f9;
+}
+
+.news-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.news-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.news-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-10px);
+}
+
+.news-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.news-card .content {
+    padding: 15px;
+}
+
+.news-card .content h3 {
+    font-size: 1.2rem;
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.news-card .content p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 0 15px;
+}
+
+.news-card .content .date {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.news-card .content .tag {
+    font-size: 0.8rem;
+    color: #f3a953;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Card Section */
+.card-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 0;
+    padding: 10px;
+    font-size: 1.2em;
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.card p {
+    padding: 10px;
+    margin: 0;
+}
+
+.card span {
+    display: block;
+    padding: 10px;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.card span a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+.card span a:hover {
+    text-decoration: underline;
+}
+
+#profile-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1100;
+    transition: transform 0.3s ease, left 0.3s ease;
+}
+
+/* Geser Profil */
+#profile-icon.active {
+    left: calc(33.3% - 70px); /* Pindah ke ujung sidebar, dengan margin */
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Sidebar Profil */
+#profile-sidebar {
+    position: fixed;
+    top: 0;
+    left: -33.3%;
+    width: 33.3%;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+#profile-sidebar.active {
+    transform: translateX(100%);
+}
+
+/* Tombol Tutup Sidebar */
+#close-profile {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #333;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+/* Formulir Rapi */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 90%;
+    max-height: 80%;
+    overflow: auto;
+}
+
+.crop-container img {
+    max-width: 100%;
+    display: block;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.page {
+    padding: 20px;
+    margin: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#main-content {
+    display: none;
+    padding: 20px;
+}
