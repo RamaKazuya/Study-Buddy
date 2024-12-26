@@ -134,17 +134,6 @@ window.addEventListener("load", () => {
     if (profileImage) profileIcon.src = profileImage;
 });
 
-const video = document.getElementById("introVideo");
-const content = document.getElementById("content");
-
-video.addEventListener("ended", () => {
-  video.classList.add("hidden");
-  setTimeout(() => {
-    video.style.display = "none";
-    content.style.display = "block";
-  }, 1000); // Waktu sesuai durasi animasi
-});
-
 const searchBtn = document.getElementById('searchBtn');
         const status = document.querySelector('.status');
         const spinner = document.querySelector('.spinner');
