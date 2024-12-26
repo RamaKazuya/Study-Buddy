@@ -12,7 +12,11 @@
 </head>
 <body>
     <header>
-
+        <video id="introVideo" autoplay muted playsinline>
+            <source src="op1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          
         <img id="profile-icon" src="https://via.placeholder.com/50" alt="Profil" title="Pengaturan Profil">
 
         <div class="logo">
@@ -21,40 +25,134 @@
         
         <nav class="navbar">
             <ul class="nav-links">
-                <li><a href="#" id="beranda" onclick="showSection('beranda-section')">Beranda</a></li>
-                <li><a href="#" id="berita" onclick="showSection('berita-section')">Berita</a></li>
+                <li><a href="#" id="home" onclick="showSection('home-section')">Home</a></li>
+                <li><a href="#" id="news" onclick="showSection('news-section')">News</a></li>
                 <li class="dropdown">
-                    <a href="#" id="informasi">Informasi</a>
+                    <a href="#" id="informasi" class="dropdown-toggle">
+                        Information <span class="arrow">&#x25BC;</span>
+                    </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" id="tentang-game" onclick="showSection('tentang-web-section')">Tentang Website</a></li>
-                        <li><a href="#" id="dunia" onclick="showSection('sb-section')">Tentang Study Buddy</a></li>
-                        <li><a href="#" id="jurnal" onclick="showSection('jurnal-section')">Jurnal</a></li>
-                        <li><a href="#" id="manga" onclick="showSection('hiburan-section')">Hiburan</a></li>
+                        <li><a href="#" id="about-web" onclick="showSection('about-web-section')">About Website</a></li>
+                        <li><a href="#" id="sb" onclick="showSection('sb-section')">About Study Buddy</a></li>
+                        <li><a href="#" id="journal" onclick="showSection('journal-section')">Journal</a></li>
+                        <li><a href="#" id="games" onclick="showSection('games-section')">Games</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="#" id="informasi" class="dropdown-toggle">
+                        Friends <span class="arrow">&#x25BC;</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" id="search" onclick="showSection('search-section')">Search Friends</a></li>
+                        <li><a href="#" id="list" onclick="showSection('list-section')">Friend List</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" id="lead" onclick="showSection('lead-section')">Leaderboard</a></li>
             </ul>
         </nav>    
     </header>
 
-    <div id="beranda-section" class="section active">
+    <!-- Halaman Beranda -->
+    <div id="home-section" class="section active">
         <div class="hero">
             <div class="hero-content">
-                <h1>Akan Hadir Secara Penuh Pada</h1>
-                <p>To Be Announced</p>
+                <h1>Will be Fully Present on a Date</h1>
+                <p>To Be Announcement</p>
                 <a href="#" class="btn">Pre-Regist</a>
+                <ul class="nav-links">
                 <div class="download-options">
-                    <img src="f1.jpg" alt="f1">
-                    <img src="f2.jpg" alt="f2">
-                    <img src="f3.jpg" alt="f3">
-                    <img src="sb2.jpg" alt="f4">
-                    <img src="sb2.jpg" alt="f5">
-                    <img src="sb2.jpg" alt="f6">
+                    <div class="gambar-item">
+                        <li><a href="#" id="friend" onclick="showSection('friend-section')"><img src="f1.jpg" alt="f1"></a></li>
+                        <div class="caption" style="text-align: center;">With Friend</div>
+                    </div>
+                    <div class="gambar-item">
+                        <li><a href="#" id="ai" onclick="showSection('ai-section')"><img src="f2.jpg" alt="f2"></a></li>
+                        <div class="caption" style="text-align: center;">With AI</div>
+                    </div>
+                    <div class="gambar-item">
+                        <li><a href="#" id="quest" onclick="showSection('quest-section')"><img src="f3.jpg" alt="f3"></a></li>
+                        <div class="caption" style="text-align: center;">Daily Quest</div>
+                    </div>
+                    <div class="gambar-item">
+                        <li><a href="#" id="join-room" onclick="joinRoom()"><img src="sb2.jpg" alt="f4"></a></li>                          
+                        <div class="caption" style="text-align: center;">TBA</div>
+                    </div>
+                    <div class="gambar-item">
+                        <li><a href="#" id="join-room" onclick="joinRoom()"><img src="sb2.jpg" alt="f5"></a></li>
+                        <div class="caption" style="text-align: center;">TBA</div>
+                    </div>
+                    <div class="gambar-item">
+                        <li><a href="#" id="join-room" onclick="joinRoom()"><img src="sb2.jpg" alt="f6"></a></li>
+                        <div class="caption" style="text-align: center;">TBA</div>
+                    </div>
+                </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Halaman Fitur With Friends -->
+    <div id="friend-section" class="section">
+        <div class="containerspin" class="bodySpin">
+            <h1>Find Your Match</h1>
+            <p class="status">Searching for active players...</p>
+            <div class="spinner"></div>
+            <div class="result"></div>
+            <button id="searchBtn">Search</button>
+        </div>
+    </div>
+
+    <!-- Halaman Fitur With AI -->
+    <div id="ai-section" class="section">
+        <div class="containerai" class="bodyai">
+            <!-- Voice Interaction -->
+            <div class="card">
+                <h2>AI Voice Interaction</h2>
+                <button onclick="startVoiceInteraction()">Talk to AI</button>
+                <div id="voiceOutput" class="output">Your AI voice responses will appear here...</div>
+            </div>
+    
+            <!-- AI Quiz -->
+            <div class="card">
+                <h2>Interactive Quiz</h2>
+                <button onclick="startQuiz()">Start Quiz</button>
+                <div id="quizOutput" class="output">Quiz results will appear here...</div>
+            </div>
+    
+            <!-- ChatGPT-like Interaction -->
+            <div class="card">
+                <h2>Chat with AI</h2>
+                <textarea id="questionInput" placeholder="Type your question here..."></textarea>
+                <button onclick="askAI()">Ask AI</button>
+                <div id="aiOutput" class="output">AI's response will appear here...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Halaman Fitur quest -->
+    <div id="quest-section" class="section">
+        <div class="containerreward" class="bodyreward">
+            <h1>Daily Quests</h1>
+            <div id="quests">
+                <!-- Quests will be dynamically added here -->
+            </div>
+            <button id="completeButton">Complete All</button>
+            <div class="timer" id="timer"></div>
+    
+            <div class="reward-container">
+                <h2>Rewards</h2>
+                <div class="reward-list">
+                    <div class="reward-item">💎</div>
+                    <div class="reward-item">✨</div>
+                    <div class="reward-item">🏆</div>
                 </div>
             </div>
         </div>
     </div>
-    <div id="berita-section" class="section">
-            <h2>Berita Terbaru</h2>
+
+    <!-- Halaman Berita -->
+    <div id="news-section" class="section">
+            <h2>News Report</h2>
             <div class="news-cards">
                 <div class="news-card">
                     <img src="b1.jpg" alt="News 1">
@@ -79,65 +177,86 @@
                     <div class="content">
                         <h3>Peluncuran Aplikasi Study Buddy</h3>
                         <p>Study Buddy, aplikasi pembelajaran berbasis AI, akan segera diluncurkan untuk membantu pelajar belajar lebih efektif dan interaktif dengan menggunakan teknologi canggih.</p>
-                        <div class="date">To Be Announced</div>
+                        <div class="date">To Be Announcement</div>
                         <div class="tag">Buletin</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="tentang-web-section" class="section">
-            <h1>Tentang Website</h1>
+
+        <!-- Halaman Informasi -->
+        <div id="about-web-section" class="section">
+            <h1>About Website</h1>
             <p>Informasi tentang website ini.</p>
         </div>
         <div id="sb-section" class="section">
-            <h1>Study Buddy</h1>
+            <h1>About Study Buddy</h1>
             <p>Informasi tentang Study Buddy.</p>
         </div>
-        <div id="jurnal-section" class="section">
-            <h1>Jurnal</h1>
+        <div id="journal" class="section">
+            <h1>Journal</h1>
             <p>Catatan jurnal terkait Study Buddy.</p>
         </div>
-        <div id="hiburan-section" class="section">
-            <h1>Hiburan</h1>
+        <div id="games" class="section">
+            <h1>Games</h1>
             <p>Hiburan yang ada di website ini.</p>
         </div>
 
+        <!-- Halaman Teman -->
+        <div id="search-section" class="section">
+            
+        </div>
+
+        <!-- Leaderboard -->
+        <div id="lead-section" class="section">
+            <div class="leaderboard-container" class="bodylead">
+                <div class="leaderboard">
+                    <h1>Elite Rankings</h1>
+                    <ul id="leaderboard-list">
+                        <!-- Leaderboard items will be injected here -->
+                    </ul>
+                </div>
+                <div class="glow-bg"></div>
+            </div>
+        </div>
+
+        <!-- Halaman Profil -->
         <div id="profile-sidebar">
             <button id="close-profile">&times;</button>
-            <h2>Pengaturan Profil</h2>
+            <h2>Setting Profil</h2>
             <form id="profile-form">
                 <div class="form-group">
-                    <label for="username">Nama Pengguna:</label>
+                    <label for="username">Username</label>
                     <input type="text" id="username" name="username" placeholder="Masukkan nama Anda">
                 </div>
                 <div class="form-group">
-                    <label for="email">Email:</label>
+                    <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Masukkan email Anda">
                 </div>
                 <div class="form-group">
-                    <label for="bio">Bio:</label>
+                    <label for="bio">Bio</label>
                     <textarea id="bio" name="bio" placeholder="Tulis bio singkat Anda"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="profile-picture">Gambar Profil:</label>
+                    <label for="profile-picture">Foto Profil</label>
                     <input type="file" id="profile-picture" accept="image/*">
                 </div>
                 <div class="form-group">
-                    <label for="bg-color">Warna Latar Belakang:</label>
+                    <label for="bg-color">Backgorund Color</label>
                     <input type="color" id="bg-color" value="#f5f5f5">
                 </div>
-                <button type="submit">Simpan</button>
+                <button type="submit">Save</button>
             </form>
         </div>
     
         <div id="crop-modal" class="modal">
             <div class="modal-content">
                 <span class="close-btn">&times;</span>
-                <h2>Crop Gambar Profil</h2>
+                <h2>Crop Foto Profil</h2>
                 <div class="crop-container">
                     <img id="image-to-crop" src="">
                 </div>
-                <button id="crop-btn">Crop & Simpan</button>
+                <button id="crop-btn">Crop & Save</button>
             </div>
         </div>
     

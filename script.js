@@ -134,12 +134,186 @@ window.addEventListener("load", () => {
     if (profileImage) profileIcon.src = profileImage;
 });
 
-// Fungsi Placeholder
+const video = document.getElementById("introVideo");
+const content = document.getElementById("content");
+
+video.addEventListener("ended", () => {
+  video.classList.add("hidden");
+  setTimeout(() => {
+    video.style.display = "none";
+    content.style.display = "block";
+  }, 1000); // Waktu sesuai durasi animasi
+});
+
+const searchBtn = document.getElementById('searchBtn');
+        const status = document.querySelector('.status');
+        const spinner = document.querySelector('.spinner');
+        const result = document.querySelector('.result');
+
+        searchBtn.addEventListener('click', () => {
+            status.style.display = 'block';
+            spinner.style.display = 'block';
+            result.style.display = 'none';
+            searchBtn.disabled = true;
+            searchBtn.style.backgroundColor = '#cccccc';
+            
+            setTimeout(() => {
+                const users = ['Udin', 'Asep', 'Amat', 'Riski', 'Putra'];
+                const matchedUser = users[Math.floor(Math.random() * users.length)];
+                
+                status.style.display = 'none';
+                spinner.style.display = 'none';
+                result.style.display = 'block';
+                result.textContent = `You are matched with: ${matchedUser}`;
+                searchBtn.disabled = false;
+                searchBtn.style.backgroundColor = '#ff8c00';
+            }, 3000); // Simulate 3 seconds of matchmaking
+        });
+
+        // Leaderboard data
+        const players = [
+            { rank: 1, name: "Kazuya", score: 20000 },
+            { rank: 2, name: "Astro", score: 14500 },
+            { rank: 3, name: "Faker", score: 14000 },
+            { rank: 4, name: "Lunar", score: 13500 },
+            { rank: 5, name: "Star", score: 13000 }
+        ];
+
+        // Populate leaderboard
+        const leaderboardList = document.getElementById('leaderboard-list');
+        players.forEach(player => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <span class="rank">#${player.rank}</span>
+                <span class="name">${player.name}</span>
+                <span class="score">${player.score}</span>
+            `;
+            leaderboardList.appendChild(listItem);
+        });
+
+        // Voice Interaction
+        function startVoiceInteraction() {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.start();
+
+            recognition.onresult = function(event) {
+                const userSpeech = event.results[0][0].transcript;
+                document.getElementById('voiceOutput').textContent = `You: ${userSpeech}`;
+
+                // Simulate AI Response
+                setTimeout(() => {
+                    const aiResponse = `I heard you say: "${userSpeech}". Here is what I think about that!`;
+                    document.getElementById('voiceOutput').textContent += `\nAI: ${aiResponse}`;
+                }, 2000);
+            };
+
+            recognition.onerror = function(event) {
+                document.getElementById('voiceOutput').textContent = `Error: ${event.error}`;
+            };
+        }
+
+        // Quiz
+        function startQuiz() {
+            const question = "What is the capital of Japan?";
+            const answer = prompt(question);
+            const response = answer.toLowerCase() === "tokyo" ? "Correct! Well done." : "Incorrect! The correct answer is Tokyo.";
+            document.getElementById('quizOutput').textContent = response;
+        }
+
+        // ChatGPT-like Interaction
+        async function askAI() {
+            const question = document.getElementById('questionInput').value;
+            if (!question.trim()) {
+                document.getElementById('aiOutput').textContent = "Please enter a valid question.";
+                return;
+            }
+
+            document.getElementById('aiOutput').textContent = "Processing your question...";
+
+            // Simulate AI response (could be replaced by real API integration)
+            const response = `Here is a detailed answer for your question: "${question}". Hope this helps!`;
+            setTimeout(() => {
+                document.getElementById('aiOutput').textContent = response;
+            }, 2000);
+        }
+
+        const quests = [
+            { id: 1, text: "Collect 10 apples", points: 10, completed: false },
+            { id: 2, text: "Defeat 5 monsters", points: 20, completed: false },
+            { id: 3, text: "Gather 3 herbs", points: 15, completed: false },
+            { id: 4, text: "Talk to the village elder", points: 5, completed: false },
+            { id: 5, text: "Complete a dungeon", points: 50, completed: false },
+        ];
+
+        const questContainer = document.getElementById("quests");
+        const completeButton = document.getElementById("completeButton");
+        const timerElement = document.getElementById("timer");
+
+        let timer = null;
+
+        function renderQuests() {
+            questContainer.innerHTML = "";
+            quests.forEach((quest) => {
+                const questElement = document.createElement("div");
+                questElement.className = `quest ${quest.completed ? "completed" : ""}`;
+                questElement.innerHTML = `
+                    <span>${quest.text} <span class="points">+${quest.points}</span></span>
+                    ${quest.completed ? "✔️" : ""}
+                `;
+                questElement.addEventListener("click", () => toggleQuest(quest.id));
+                questContainer.appendChild(questElement);
+            });
+        }
+
+        function toggleQuest(id) {
+            const quest = quests.find((q) => q.id === id);
+            if (quest) quest.completed = !quest.completed;
+            renderQuests();
+        }
+
+        function completeAllQuests() {
+            if (quests.every((q) => q.completed)) {
+                questContainer.innerHTML = "";
+                startTimer();
+            } else {
+                alert("Please complete all quests first.");
+            }
+        }
+
+        function startTimer() {
+            const endTime = new Date();
+            endTime.setHours(24, 0, 0, 0);
+
+            timer = setInterval(() => {
+                const now = new Date();
+                const remaining = endTime - now;
+
+                if (remaining <= 0) {
+                    clearInterval(timer);
+                    timerElement.textContent = "";
+                    resetQuests();
+                    return;
+                }
+
+                const hours = String(Math.floor((remaining / (1000 * 60 * 60)) % 24)).padStart(2, "0");
+                const minutes = String(Math.floor((remaining / (1000 * 60)) % 60)).padStart(2, "0");
+                const seconds = String(Math.floor((remaining / 1000) % 60)).padStart(2, "0");
+
+                timerElement.textContent = `Next quests in: ${hours}:${minutes}:${seconds}`;
+            }, 1000);
+        }
+
+        function resetQuests() {
+            quests.forEach((q) => (q.completed = false));
+            renderQuests();
+        }
+
+        completeButton.addEventListener("click", completeAllQuests);
+
+        renderQuests();
+
+        // Fungsi Placeholder
 function joinRoom() {
-    alert("Anda bergabung ke ruang belajar!");
+    alert("To Be Announcement");
 }
-
-function startAIMode() {
-    alert("Mode belajar dengan AI dimulai. Selamat belajar!");
-}
-
