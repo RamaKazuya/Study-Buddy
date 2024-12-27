@@ -452,9 +452,11 @@ footer {
     height: 60px; /* Contoh tinggi footer */
     background-color: #333;
     color: white;
-    text-align: center;
-    line-height: 60px; /* Untuk memusatkan teks secara vertikal */
+    display: flex;
+    justify-content: center; /* Memusatkan secara horizontal */
+    align-items: center; /* Memusatkan secara vertikal */
 }
+
 
 .page {
     padding: 20px;
