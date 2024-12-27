@@ -4,6 +4,8 @@ body {
     overflow-x: hidden;
     background-image: url('sb1.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;           
 }
 
 .logo {
