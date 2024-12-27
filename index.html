@@ -59,7 +59,7 @@
                 <div class="download-options">
                     <div class="gambar-item">
                         <li><a href="#" id="friend" onclick="showSection('friend-section')"><img src="f1.jpg" alt="f1"></a></li>
-                        <div class="caption" style="text-align: center;">With Friend</div>
+                        <div class="caption" style="text-align: center;">With Public</div>
                     </div>
                     <div class="gambar-item">
                         <li><a href="#" id="ai" onclick="showSection('ai-section')"><img src="f2.jpg" alt="f2"></a></li>
@@ -90,8 +90,8 @@
     <!-- Halaman Fitur With Friends -->
     <div id="friend-section" class="section" class="bodySpin">
         <div class="containerspin">
-            <h1>Find Your Match</h1>
-            <p class="status">Searching for active players...</p>
+            <h1>Find Your Friends</h1>
+            <p class="status">Searching for active Users...</p>
             <div class="spinner"></div>
             <div class="result"></div>
             <button id="searchBtn">Search</button>
@@ -214,6 +214,7 @@
                     <img src="dayat.jpg" alt="Creator 3" onclick="showProfile(2)">
                     <img src="ade.jpg" alt="Creator 4" onclick="showProfile(3)">
                     <img src="fauzil.jpg" alt="Creator 5" onclick="showProfile(4)">
+                    <img src="zaidan.jpg" alt="Creator 6" onclick="showProfile(5)">
                 </div>
                 <div class="profile-displaycreator" id="profileDisplay">
                     <img src="0.png" alt="Profile Picture" id="profilePic">
@@ -286,10 +287,32 @@
                         <div class="friend-details">
                             <strong>Hidayatullah</strong>
                             <span>Anime - Islami</span>
-                            <span style="color: red;">Offline</span>
+                            <span style="color: green;">Online</span>
                         </div>
                         <div class="friend-actions">
-                            <button onclick="followFriend(this, 'Hidayatullah', 'Anime - Islami', 'Offline')">Follow</button>
+                            <button onclick="followFriend(this, 'Hidayatullah', 'Anime - Islami', 'Online')">Follow</button>
+                        </div>
+                    </li>
+                    <li class="friend-item">
+                        <img src="pp8.png" alt="Avatar">
+                        <div class="friend-details">
+                            <strong>Astro</strong>
+                            <span>Adventure - Math</span>
+                            <span style="color: green;">Online</span>
+                        </div>
+                        <div class="friend-actions">
+                            <button onclick="followFriend(this, 'Astro', 'Adventure - Math', 'Online')">Follow</button>
+                        </div>
+                    </li>
+                    <li class="friend-item">
+                        <img src="pp5.png" alt="Avatar">
+                        <div class="friend-details">
+                            <strong>Lunar</strong>
+                            <span>Killer</span>
+                            <span style="color: green;">Online</span>
+                        </div>
+                        <div class="friend-actions">
+                            <button onclick="followFriend(this, 'Lunar', 'Killer', 'Online')">Follow</button>
                         </div>
                     </li>
                 </ul>

@@ -147,7 +147,7 @@ const searchBtn = document.getElementById('searchBtn');
             searchBtn.style.backgroundColor = '#cccccc';
             
             setTimeout(() => {
-                const users = ['Udin', 'Asep', 'Amat', 'Riski', 'Putra'];
+                const users = ['Alya', 'Fauzil', 'Rama', 'Riski', 'Putra', 'Amat', 'Raihan', 'Jor', 'Astro', 'Lunar', 'Star', 'kei', 'Syeila'];
                 const matchedUser = users[Math.floor(Math.random() * users.length)];
                 
                 status.style.display = 'none';
@@ -161,11 +161,11 @@ const searchBtn = document.getElementById('searchBtn');
 
         // Leaderboard data
         const players = [
-            { rank: 1, name: "Kazuya", score: 20000 },
-            { rank: 2, name: "Astro", score: 14500 },
-            { rank: 3, name: "Faker", score: 14000 },
-            { rank: 4, name: "Lunar", score: 13500 },
-            { rank: 5, name: "Star", score: 13000 }
+            { rank: 1, name: "Rama", score: 20000 },
+            { rank: 2, name: "Fauzil", score: 18120 },
+            { rank: 3, name: "Astro", score: 17720 },
+            { rank: 4, name: "Lunar", score: 17100 },
+            { rank: 5, name: "Alya", score: 17000 }
         ];
 
         // Populate leaderboard
@@ -343,18 +343,28 @@ function refreshRecommendations() {
     const friendList = document.getElementById('friendList');
     const newRecommendations = [
         {
-            name: 'Hifzi',
+            name: 'Kei',
             details: 'Game - Pro Player',
             time: 'Offline'
         },
         {
-            name: 'Anwar',
+            name: 'Syeila',
+            details: 'Bunny',
+            time: 'Offline'
+        },
+        {
+            name: 'Ado',
             details: 'Musik - DJ',
             time: 'Offline'
         },
         {
             name: 'Zaidan',
             details: 'Fitness - Athlete',
+            time: 'Offline'
+        },
+        {
+            name: 'Rezz',
+            details: 'Sea - Forest',
             time: 'Offline'
         },
         {
@@ -466,12 +476,21 @@ const profiles = [
             linkedin: "https://linkedin.com/in/alicejohnson",
             github: "https://github.com/alicejohnson"
         }
-    }
-    ,
+    },
     {
         name: "Achmad Fauzil 'Adhim",
         bio: "No Bio Yet.",
         img: "fauzil.jpg",
+        social: {
+            twitter: "https://twitter.com/alicejohnson",
+            linkedin: "https://linkedin.com/in/alicejohnson",
+            github: "https://github.com/alicejohnson"
+        }
+    },
+    {
+        name: "Zaidannur Muzanni",
+        bio: "No Bio Yet.",
+        img: "zaidan.jpg",
         social: {
             twitter: "https://twitter.com/alicejohnson",
             linkedin: "https://linkedin.com/in/alicejohnson",
