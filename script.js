@@ -429,7 +429,7 @@ function sendMessage() {
 const profiles = [
     {
         name: "Alya Nur Medina",
-        bio: "A visionary web developer and creator, passionate about innovation.",
+        bio: "No Bio Yet.",
         img: "alya.jpg",
         social: {
             twitter: "https://twitter.com/johndoe",
@@ -439,7 +439,7 @@ const profiles = [
     },
     {
         name: "An Nisa Putri Cendana",
-        bio: "A trailblazing designer crafting compelling visuals and stories.",
+        bio: "No Bio Yet.",
         img: "annisa.jpg",
         social: {
             twitter: "https://twitter.com/janesmith",
@@ -449,7 +449,7 @@ const profiles = [
     },
     {
         name: "Muhammad Hidayatullah",
-        bio: "A tech enthusiast shaping the future with groundbreaking ideas.",
+        bio: "No Bio Yet.",
         img: "dayat.jpg",
         social: {
             twitter: "https://twitter.com/alicejohnson",
@@ -461,6 +461,17 @@ const profiles = [
         name: "Muhammad Ade Ramadhani",
         bio: "Keberanian bukanlah ketiadaan rasa takut, tetapi kemampuan untuk mengatasi rasa takut.",
         img: "ade.jpg",
+        social: {
+            twitter: "https://twitter.com/alicejohnson",
+            linkedin: "https://linkedin.com/in/alicejohnson",
+            github: "https://github.com/alicejohnson"
+        }
+    }
+    ,
+    {
+        name: "Achmad Fauzil 'Adhim",
+        bio: "No Bio Yet.",
+        img: "fauzil.jpg",
         social: {
             twitter: "https://twitter.com/alicejohnson",
             linkedin: "https://linkedin.com/in/alicejohnson",
