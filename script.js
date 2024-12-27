@@ -228,11 +228,11 @@ const searchBtn = document.getElementById('searchBtn');
         }
 
         const quests = [
-            { id: 1, text: "Collect 10 apples", points: 10, completed: false },
-            { id: 2, text: "Defeat 5 monsters", points: 20, completed: false },
-            { id: 3, text: "Gather 3 herbs", points: 15, completed: false },
-            { id: 4, text: "Talk to the village elder", points: 5, completed: false },
-            { id: 5, text: "Complete a dungeon", points: 50, completed: false },
+            { id: 1, text: "Study with friend", points: 20, completed: false },
+            { id: 2, text: "Study with AI", points: 20, completed: false },
+            { id: 3, text: "Add 1 friend", points: 15, completed: false },
+            { id: 4, text: "Read about website", points: 5, completed: false },
+            { id: 5, text: "Share website", points: 50, completed: false },
         ];
 
         const questContainer = document.getElementById("quests");
