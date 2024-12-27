@@ -306,3 +306,176 @@ const searchBtn = document.getElementById('searchBtn');
 function joinRoom() {
     alert("To Be Announcement");
 }
+
+function regist() {
+    alert("You Have Pre-Registered");
+}
+
+function coming() {
+    alert("Coming Soon");
+}
+
+function searchFriend() {
+    const searchValue = document.getElementById('search').value.toLowerCase();
+    const friends = document.querySelectorAll('.friend-item');
+
+    friends.forEach(friend => {
+        const name = friend.querySelector('.friend-details strong').textContent.toLowerCase();
+        if (name.includes(searchValue)) {
+            friend.style.display = 'flex';
+        } else {
+            friend.style.display = 'none';
+        }
+    });
+}
+
+function toggleFollow(button) {
+    if (button.textContent === "Follow") {
+        button.textContent = "Unfollow";
+        button.style.backgroundColor = "#F57C00";
+    } else {
+        button.textContent = "Follow";
+        button.style.backgroundColor = "#EF6C00";
+    }
+}
+
+function refreshRecommendations() {
+    const friendList = document.getElementById('friendList');
+    const newRecommendations = [
+        {
+            name: 'Hifzi',
+            details: 'Game - Pro Player',
+            time: 'Offline'
+        },
+        {
+            name: 'Anwar',
+            details: 'Musik - DJ',
+            time: 'Offline'
+        },
+        {
+            name: 'Zaidan',
+            details: 'Fitness - Athlete',
+            time: 'Offline'
+        },
+        {
+            name: 'An Nisa',
+            details: 'Photography',
+            time: 'OFfline'
+        }
+    ];
+
+    friendList.innerHTML = '';
+
+    newRecommendations.forEach(friend => {
+        const friendItem = document.createElement('li');
+        friendItem.classList.add('friend-item');
+        friendItem.innerHTML = `
+            <img src="0.png" alt="Avatar">
+            <div class="friend-details">
+                <strong>${friend.name}</strong>
+                <span>${friend.details}</span>
+                <span style="color: red;">${friend.time}</span>
+            </div>
+            <div class="friend-actions">
+                <button onclick="followFriend(this, '${friend.name}', '${friend.details}', '${friend.time}')">Follow</button>
+            </div>
+        `;
+        friendList.appendChild(friendItem);
+    });
+}
+
+function followFriend(button, name, details, time) {
+    // Change button text and disable it
+    button.textContent = 'Following';
+    button.style.backgroundColor = '#BDBDBD';
+    button.disabled = true;
+
+    // Add friend to the followed list
+    const followedList = document.getElementById('followedList');
+
+    const followedItem = document.createElement('li');
+    followedItem.classList.add('followed-item');
+    followedItem.innerHTML = `
+        <img src="0.png" alt="Avatar">
+        <div class="friend-details">
+            <strong>${name}</strong>
+            <span>${details}</span>
+            <span style="color: green;">${time}</span>
+        </div>
+    `;
+
+    followedList.appendChild(followedItem);
+}
+
+function sendMessage() {
+    const chatInput = document.getElementById('chatInput');
+    const chatBody = document.getElementById('chatBody');
+
+    if (chatInput.value.trim() !== '') {
+        const message = document.createElement('div');
+        message.textContent = chatInput.value;
+        message.style.padding = '10px';
+        message.style.margin = '5px 0';
+        message.style.background = '#FF9800';
+        message.style.color = 'white';
+        message.style.borderRadius = '5px';
+        chatBody.appendChild(message);
+
+        chatInput.value = '';
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+}
+
+const profiles = [
+    {
+        name: "Alya Nur Medina",
+        bio: "A visionary web developer and creator, passionate about innovation.",
+        img: "alya.jpg",
+        social: {
+            twitter: "https://twitter.com/johndoe",
+            linkedin: "https://linkedin.com/in/johndoe",
+            github: "https://github.com/johndoe"
+        }
+    },
+    {
+        name: "An Nisa Putri Cendana",
+        bio: "A trailblazing designer crafting compelling visuals and stories.",
+        img: "annisa.jpg",
+        social: {
+            twitter: "https://twitter.com/janesmith",
+            linkedin: "https://linkedin.com/in/janesmith",
+            github: "https://github.com/janesmith"
+        }
+    },
+    {
+        name: "Muhammad Hidayatullah",
+        bio: "A tech enthusiast shaping the future with groundbreaking ideas.",
+        img: "dayat.jpg",
+        social: {
+            twitter: "https://twitter.com/alicejohnson",
+            linkedin: "https://linkedin.com/in/alicejohnson",
+            github: "https://github.com/alicejohnson"
+        }
+    },
+    {
+        name: "Muhammad Ade Ramadhani",
+        bio: "Keberanian bukanlah ketiadaan rasa takut, tetapi kemampuan untuk mengatasi rasa takut.",
+        img: "ade.jpg",
+        social: {
+            twitter: "https://twitter.com/alicejohnson",
+            linkedin: "https://linkedin.com/in/alicejohnson",
+            github: "https://github.com/alicejohnson"
+        }
+    }
+];
+
+function showProfile(index) {
+    const profile = profiles[index];
+    document.getElementById('profilePic').src = profile.img;
+    document.getElementById('profileName').innerText = profile.name;
+    document.getElementById('profileBio').innerText = profile.bio;
+    document.getElementById('twitterLink').href = profile.social.twitter;
+    document.getElementById('linkedinLink').href = profile.social.linkedin;
+    document.getElementById('githubLink').href = profile.social.github;
+}
+

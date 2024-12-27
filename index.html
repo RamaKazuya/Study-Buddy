@@ -29,9 +29,9 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="#" id="about-web" onclick="showSection('about-web-section')">About Website</a></li>
-                        <li><a href="#" id="sb" onclick="showSection('sb-section')">About Study Buddy</a></li>
-                        <li><a href="#" id="journal" onclick="showSection('journal-section')">Journal</a></li>
-                        <li><a href="#" id="games" onclick="showSection('games-section')">Games</a></li>
+                        <li><a href="#" id="sb" onclick="showSection('sb-section')">Creator's Profile</a></li>
+                        <li><a href="#" id="journal" onclick="coming()('journal-section')">Journal</a></li>
+                        <li><a href="#" id="games" onclick="coming()('games-section')">Games</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -54,7 +54,7 @@
             <div class="hero-content">
                 <h1>Will be Fully Present on a Date</h1>
                 <p>To Be Announcement</p>
-                <a href="#" class="btn">Pre-Regist</a>
+                <a href="#" class="btn" onclick="regist()">Pre-Regist</a>
                 <ul class="nav-links">
                 <div class="download-options">
                     <div class="gambar-item">
@@ -71,15 +71,15 @@
                     </div>
                     <div class="gambar-item">
                         <li><a href="#" id="join-room" onclick="joinRoom()"><img src="sb2.jpg" alt="f4"></a></li>                          
-                        <div class="caption" style="text-align: center;">TBA</div>
+                        <div class="caption" style="text-align: center;">COMING SOON</div>
                     </div>
                     <div class="gambar-item">
                         <li><a href="#" id="join-room" onclick="joinRoom()"><img src="sb2.jpg" alt="f5"></a></li>
-                        <div class="caption" style="text-align: center;">TBA</div>
+                        <div class="caption" style="text-align: center;">COMING SOON</div>
                     </div>
                     <div class="gambar-item">
                         <li><a href="#" id="join-room" onclick="joinRoom()"><img src="sb2.jpg" alt="f6"></a></li>
-                        <div class="caption" style="text-align: center;">TBA</div>
+                        <div class="caption" style="text-align: center;">COMING SOON</div>
                     </div>
                 </div>
                 </ul>
@@ -88,8 +88,8 @@
     </div>
 
     <!-- Halaman Fitur With Friends -->
-    <div id="friend-section" class="section">
-        <div class="containerspin" class="bodySpin">
+    <div id="friend-section" class="section" class="bodySpin">
+        <div class="containerspin">
             <h1>Find Your Match</h1>
             <p class="status">Searching for active players...</p>
             <div class="spinner"></div>
@@ -99,8 +99,8 @@
     </div>
 
     <!-- Halaman Fitur With AI -->
-    <div id="ai-section" class="section">
-        <div class="containerai" class="bodyai">
+    <div id="ai-section" class="section" class="bodyai">
+        <div class="containerai">
             <!-- Voice Interaction -->
             <div class="card">
                 <h2>AI Voice Interaction</h2>
@@ -126,8 +126,8 @@
     </div>
 
     <!-- Halaman Fitur quest -->
-    <div id="quest-section" class="section">
-        <div class="containerreward" class="bodyreward">
+    <div id="quest-section" class="section" class="bodyreward">
+        <div class="containerreward">
             <h1>Daily Quests</h1>
             <div id="quests">
                 <!-- Quests will be dynamically added here -->
@@ -181,13 +181,50 @@
         </div>
 
         <!-- Halaman Informasi -->
-        <div id="about-web-section" class="section">
-            <h1>About Website</h1>
-            <p>Informasi tentang website ini.</p>
+        <div id="about-web-section" class="section" class="bodyabout">
+            <div class="headerabout">
+                <h1>Information From Website Study Buddy</h1>
+            </div>
+        
+            <div class="contentabout">
+                <h2>About Study Buddy</h2>
+                <p>
+                    Study Buddy is a revolutionary platform designed to enhance your learning experience. Whether you are a student striving to excel in academics or a professional looking to acquire new skills, Study Buddy is your go-to partner for all your educational needs.
+                </p>
+                <p>
+                    Our platform offers a wide range of features tailored to support your learning journey, including:
+                </p>
+                <ul>
+                    <li><b>Collaborative Learning:</b> Connect with peers and experts to study together in virtual rooms.</li>
+                    <li><b>Progress Tracking:</b> Monitor your achievements and set goals to stay motivated.</li>
+                    <li><b>Interactive Tools:</b> Utilize flashcards, quizzes, and personalized study plans to maximize productivity.</li>
+                    <li><b>Daily Reminders:</b> Stay on track with scheduled reminders for your tasks and study sessions.</li>
+                </ul>
+                <p>
+                    At Study Buddy, we believe in making learning accessible, enjoyable, and effective for everyone. Join our community and take the next step toward achieving your educational dreams!
+                </p>
+            </div>
         </div>
         <div id="sb-section" class="section">
-            <h1>About Study Buddy</h1>
-            <p>Informasi tentang Study Buddy.</p>
+            <div class="containercreator">
+                <div class="sidebarcreator">
+                    <h2>Creators</h2>
+                    <img src="alya.jpg" alt="Creator 1" onclick="showProfile(0)">
+                    <img src="annisa.jpg" alt="Creator 2" onclick="showProfile(1)">
+                    <img src="dayat.jpg" alt="Creator 3" onclick="showProfile(2)">
+                    <img src="ade.jpg" alt="Creator 4" onclick="showProfile(3)">
+                </div>
+                <div class="profile-displaycreator" id="profileDisplay">
+                    <img src="https://via.placeholder.com/150" alt="Profile Picture" id="profilePic">
+                    <h2 id="profileName">Name</h2>
+                    <p id="profileBio">Bio</p>
+                    <div class="social-links" id="socialLinks">
+                        <a href="#" target="_blank" id="twitterLink">🐦</a>
+                        <a href="#" target="_blank" id="linkedinLink">🔗</a>
+                        <a href="#" target="_blank" id="githubLink">🐙</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="journal" class="section">
             <h1>Journal</h1>
@@ -199,13 +236,75 @@
         </div>
 
         <!-- Halaman Teman -->
-        <div id="search-section" class="section">
-            
+        <div id="search-section" class="section" class="bodysearch">
+            <div class="containersearch">
+                <div class="header">
+                    <h1>Friend Search</h1>
+                    <button onclick="refreshRecommendations()">Refresh</button>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="search" placeholder="Search by name or ID">
+                    <button onclick="searchFriend()">Search</button>
+                </div>
+                <ul class="friend-list" id="friendList">
+                    <li class="friend-item">
+                        <img src="pp7.png" alt="Avatar">
+                        <div class="friend-details">
+                            <strong>Rama</strong>
+                            <span>Game - Musik</span>
+                            <span style="color: green;">Online</span>
+                        </div>
+                        <div class="friend-actions">
+                            <button onclick="followFriend(this, 'Rama', 'Game - Musik', 'Online')">Follow</button>
+                        </div>
+                    </li>
+                    <li class="friend-item">
+                        <img src="pp2.png" alt="Avatar">
+                        <div class="friend-details">
+                            <strong>Fauzil</strong>
+                            <span>Game - Islami</span>
+                            <span style="color: green;">Online</span>
+                        </div>
+                        <div class="friend-actions">
+                            <button onclick="followFriend(this, 'Fauzil', 'Game - Islami', 'Online')">Follow</button>
+                        </div>
+                    </li>
+                    <li class="friend-item">
+                        <img src="pp1.png" alt="Avatar">
+                        <div class="friend-details">
+                            <strong>Alya</strong>
+                            <span>Film - Pecinta Kucing</span>
+                            <span style="color: green;">Online</span>
+                        </div>
+                        <div class="friend-actions">
+                            <button onclick="followFriend(this, 'Alya', 'Film - Pecinta Kucing', 'Online')">Follow</button>
+                        </div>
+                    </li>
+                    <li class="friend-item">
+                        <img src="pp3.png" alt="Avatar">
+                        <div class="friend-details">
+                            <strong>Hidayatullah</strong>
+                            <span>Anime - Islami</span>
+                            <span style="color: red;">Offline</span>
+                        </div>
+                        <div class="friend-actions">
+                            <button onclick="followFriend(this, 'Hidayatullah', 'Anime - Islami', 'Offline')">Follow</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="list-section" class="section" class="bodylist">
+            <h2>Friend List</h2>
+        <ul class="followed-list" class="containersearch" id="followedList">
+            <!-- Followed friends will appear here -->
+        </ul>
         </div>
 
         <!-- Leaderboard -->
-        <div id="lead-section" class="section">
-            <div class="leaderboard-container" class="bodylead">
+        <div id="lead-section" class="section" class="bodylead">
+            <div class="leaderboard-container">
                 <div class="leaderboard">
                     <h1>Elite Rankings</h1>
                     <ul id="leaderboard-list">
@@ -213,6 +312,17 @@
                     </ul>
                 </div>
                 <div class="glow-bg"></div>
+            </div>
+        </div>
+
+        <div class="chatbox">
+            <div class="chatbox-header">Study Buddy Chat</div>
+            <div class="chatbox-body" id="chatBody">
+                <!-- Chat messages go here -->
+            </div>
+            <div class="chatbox-footer">
+                <input type="text" id="chatInput" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
             </div>
         </div>
 
