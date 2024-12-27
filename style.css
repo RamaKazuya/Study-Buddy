@@ -1067,35 +1067,55 @@ a:hover {
     background-color: #D84315;
 }
 
-.chatbox { 
-    position: fixed;
-    bottom: 80px; /* Memberi jarak dari footer (pastikan lebih besar dari tinggi footer) */
-    right: 20px;
-    background-color: white;
+.chatbox {
+    width: 350px;
     border: 2px solid #FF9800;
     border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    width: 300px;
-    max-height: calc(100vh - 100px); /* Menyesuaikan viewport dan footer */
-    display: flex;
-    flex-direction: column;
+    background: white;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     overflow: hidden;
+    position: fixed;
+    bottom: 80px; /* Jarak dari bawah */
+    right: 20px;  /* Jarak dari kanan */
+    z-index: 10000; /* Supaya tetap di atas elemen lainnya */
+    max-height: calc(100vh - 100px); /* Menyesuaikan viewport dan footer */
 }
 .chatbox-header {
     background: linear-gradient(90deg, #FF9800, #FF6D00);
     color: white;
-    padding: 10px;
+    padding: 15px;
     text-align: center;
-    font-size: 18px;
+    font-weight: bold;
 }
 .chatbox-body {
-    flex: 1;
-    padding: 10px;
+    padding: 15px;
+    height: 200px;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.message {
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+.message.user {
+    background: linear-gradient(90deg, #FF9800, #FF6D00);
+    color: white;
+    align-self: flex-end;
+    border-top-right-radius: 0;
+}
+.message.bot {
+    background: #f0f0f0;
+    color: #333;
+    align-self: flex-start;
+    border-top-left-radius: 0;
 }
 .chatbox-footer {
-    display: flex;
     padding: 10px;
+    display: flex;
+    gap: 10px;
     border-top: 1px solid #FF9800;
 }
 .chatbox-footer input {
@@ -1103,19 +1123,14 @@ a:hover {
     padding: 10px;
     border: 1px solid #FF9800;
     border-radius: 5px;
-    margin-right: 10px;
 }
 .chatbox-footer button {
     padding: 10px;
-    background-color: #FF9800;
+    background: linear-gradient(90deg, #FF9800, #FF6D00);
     border: none;
     border-radius: 5px;
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.chatbox-footer button:hover {
-    background-color: #FF6D00;
 }
 
 .bodyabout {
