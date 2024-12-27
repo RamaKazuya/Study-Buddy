@@ -418,23 +418,63 @@ function followFriend(button, name, details, time) {
 }
 
 function sendMessage() {
-    const chatInput = document.getElementById('chatInput');
-    const chatBody = document.getElementById('chatBody');
+    const input = document.getElementById('userInput');
+    const message = input.value.trim();
+    if (message) {
+        // Tambahkan pesan pengguna ke tampilan
+        addMessage(message, 'user');
 
-    if (chatInput.value.trim() !== '') {
-        const message = document.createElement('div');
-        message.textContent = chatInput.value;
-        message.style.padding = '10px';
-        message.style.margin = '5px 0';
-        message.style.background = '#FF9800';
-        message.style.color = 'white';
-        message.style.borderRadius = '5px';
-        chatBody.appendChild(message);
+        // Proses respons chatbot
+        const botResponse = getResponse(message);
+        if (botResponse) {
+            setTimeout(() => addMessage(botResponse, 'bot'), 500); // Simulasi delay respons
+        }
 
-        chatInput.value = '';
-        chatBody.scrollTop = chatBody.scrollHeight;
+        input.value = '';
     }
 }
+
+function addMessage(text, type) {
+    const chatboxBody = document.getElementById('chatbox-body');
+    const div = document.createElement('div');
+    div.className = `message ${type}`;
+    div.textContent = text;
+    chatboxBody.appendChild(div);
+    chatboxBody.scrollTop = chatboxBody.scrollHeight; // Scroll ke bawah
+}
+
+function getResponse(input) {
+    // Logika respon chatbot
+    input = input.toLowerCase();
+    switch (input) {
+        case "hallo":
+            return "Hi!";
+        case "apa kabar":
+            return "Saya baik, terima kasih! Bagaimana dengan Anda?";
+        case "siapa kamu":
+            return "Saya adalah chatbot sederhana yang dibuat menggunakan HTML dan JavaScript.";
+        default:
+            return "Maaf, saya tidak mengerti apa yang Anda maksud.";
+    }
+}
+
+const chatboxBody = document.querySelector('.chatbox-body');
+
+// Fungsi untuk scroll otomatis
+function scrollToBottom() {
+    chatboxBody.scrollTop = chatboxBody.scrollHeight;
+}
+
+// Tambahkan event listener pada tombol kirim
+document.querySelector('.chatbox-footer button').addEventListener('click', () => {
+    const input = document.querySelector('.chatbox-footer input');
+    if (input.value.trim()) {
+        addMessage('user', input.value);
+        input.value = '';
+        // Simulasikan balasan bot
+        setTimeout(() => addMessage('bot', 'Halo, ada yang bisa saya bantu?'), 1000);
+    }
+});
 
 const profiles = [
     {
